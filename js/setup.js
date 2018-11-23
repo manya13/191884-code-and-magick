@@ -30,8 +30,8 @@ var getWizards = function () {
       eyesColor: WIZARD_COAT[getRandomNumber(WIZARD_EYES)]
     };
   }
-  return wizards
-}
+  return wizards;
+};
 
 var wizardsList = getWizards();
 
@@ -50,8 +50,8 @@ var getFragment = function () {
   for (var j = 0; j < wizardsList.length; j++) {
     fragment.appendChild(renderWizard(wizardsList[j]));
   }
-  return fragment
-}
+  return fragment;
+};
 
 similarListElement.appendChild(getFragment());
 
