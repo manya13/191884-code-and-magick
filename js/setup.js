@@ -39,8 +39,8 @@ var changeColor = function (parameter, arr, input) {
   if (input === fireballInput) {
     parameter.style.background = input.value;
   } else {
-      parameter.style.fill = input.value;
-    }
+    parameter.style.fill = input.value;
+  }
 };
 
 // функция получени массива аналогичных магов
