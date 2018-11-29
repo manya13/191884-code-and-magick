@@ -142,6 +142,6 @@ eyesColor.addEventListener('click', function () {
 });
 
 fireballColor.addEventListener('click', function () {
-  fireballColor.style.backgroundColor = WIZARD_FIREBALLS[getRandomNumber(WIZARD_FIREBALLS)];
-  fireballInput.value = fireballColor.style.backgroundColor;
+  fireballInput.value = WIZARD_FIREBALLS[getRandomNumber(WIZARD_FIREBALLS)];
+  fireballColor.style.backgroundColor = fireballInput.value;
 });
