@@ -81,7 +81,7 @@ userDialog.querySelector('.setup-similar').classList.remove('hidden');
 // закрытие через ESC
 var onPopupEscPress = function (evt) {
   if (userNameInput === document.activeElement) {
-    onPopupEscPress ();
+    onPopupEscPress();
   } else if (evt.keyCode === ESC_KEYCODE) {
     closePopup();
   }
@@ -99,7 +99,7 @@ var closePopup = function () {
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-setupOpen.addEventListener('click', function() {
+setupOpen.addEventListener('click', function () {
   openPopup();
 });
 
