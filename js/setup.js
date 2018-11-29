@@ -22,21 +22,25 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template')
 var setupOpen = document.querySelector('.setup-open');
 var setupClose = userDialog.querySelector('.setup-close');
 var userNameInput = userDialog.querySelector('.setup-user-name');
-var coatInput = document.querySelector('input[name="coat-color"]');
-var eyesInput = document.querySelector('input[name="eyes-color"]');
-var fireballInput = document.querySelector('input[name="fireball-color"]');
-var wizardSetup = document.querySelector('.setup-wizard');
-var coatColor = wizardSetup.querySelector('.wizard-coat');
-var eyesColor = wizardSetup.querySelector('.wizard-eyes');
-var fireballColor = document.querySelector('.setup-fireball-wrap');
+var coatInput = userDialog.querySelector('input[name="coat-color"]');
+var eyesInput = userDialog.querySelector('input[name="eyes-color"]');
+var fireballInput = userDialog.querySelector('input[name="fireball-color"]');
+var setupWizard = userDialog.querySelector('.setup-wizard');
+var coatColor = setupWizard.querySelector('.wizard-coat');
+var eyesColor = setupWizard.querySelector('.wizard-eyes');
+var fireballColor = userDialog.querySelector('.setup-fireball-wrap');
 
 var getRandomNumber = function (arr) {
   return Math.floor(Math.random() * arr.length);
 };
 
 var changeColor = function (parameter, arr, input) {
-  parameter.style.fill = arr[getRandomNumber(arr)];
-  input.value = parameter.style.fill;
+  input.value = arr[getRandomNumber(arr)];
+  if (input === fireballInput) {
+    parameter.style.background = input.value;
+  } else {
+      parameter.style.fill = input.value;
+    }
 };
 
 // функция получени массива аналогичных магов
@@ -142,6 +146,5 @@ eyesColor.addEventListener('click', function () {
 });
 
 fireballColor.addEventListener('click', function () {
-  fireballInput.value = WIZARD_FIREBALLS[getRandomNumber(WIZARD_FIREBALLS)];
-  fireballColor.style.backgroundColor = fireballInput.value;
+  changeColor(fireballColor, WIZARD_FIREBALLS, fireballInput);
 });
