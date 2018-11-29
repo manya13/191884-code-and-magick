@@ -81,7 +81,7 @@ userDialog.querySelector('.setup-similar').classList.remove('hidden');
 // закрытие через ESC
 var onPopupEscPress = function (evt) {
   if (userNameInput === document.activeElement) {
-    return evt;
+    onPopupEscPress ();
   } else if (evt.keyCode === ESC_KEYCODE) {
     closePopup();
   }
@@ -99,28 +99,28 @@ var closePopup = function () {
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-setupOpen.addEventListener ('click', function() {
+setupOpen.addEventListener('click', function() {
   openPopup();
 });
 
-setupOpen.addEventListener ('keydown', function(evt) {
+setupOpen.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
   }
 });
 
-setupClose.addEventListener ('click', function() {
+setupClose.addEventListener('click', function () {
   closePopup();
 });
 
-setupClose.addEventListener ('keydown', function(evt) {
+setupClose.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     closePopup();
   }
 });
 
 // ограничения для поля ввода имени
-userNameInput.addEventListener('invalid', function (evt) {
+userNameInput.addEventListener('invalid', function () {
   if (userNameInput.validity.tooShort) {
     userNameInput.setCustomValidity('Имя должно состоять минимум из 2-х символов');
   } else if (userNameInput.validity.tooLong) {
@@ -129,15 +129,6 @@ userNameInput.addEventListener('invalid', function (evt) {
     userNameInput.setCustomValidity('Обязательное поле');
   } else {
     userNameInput.setCustomValidity('');
-  }
-});
-
-userNameInput.addEventListener('input', function (evt) {
-  var target = evt.target;
-  if (target.value.length < 2) {
-    target.setCustomValidity('Имя должно состоять минимум из 2-х символов');
-  } else {
-    target.setCustomValidity('');
   }
 });
 
