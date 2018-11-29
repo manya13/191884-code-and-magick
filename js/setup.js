@@ -39,7 +39,7 @@ var changeColor = function (parameter, arr, input) {
   input.value = parameter.style.fill;
 };
 
-//функция получени массива аналогичных магов
+// функция получени массива аналогичных магов
 var getWizards = function () {
   var wizards = [];
   for (var i = 0; i < 4; i++) {
@@ -54,7 +54,7 @@ var getWizards = function () {
 
 var wizardsList = getWizards();
 
-//клонирование шаблона с параметрами мага
+// клонирование шаблона с параметрами мага
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
 
@@ -65,7 +65,7 @@ var renderWizard = function (wizard) {
   return wizardElement;
 };
 
-//создание похожих магов
+// создание похожих магов
 var getFragment = function () {
   var fragment = document.createDocumentFragment();
   for (var j = 0; j < wizardsList.length; j++) {
@@ -78,48 +78,48 @@ similarListElement.appendChild(getFragment());
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
 
-//закрытие через ESC
-var onPopupEscPress = function(evt) {
-  if (userNameInput === document.activeElement){
-    return evt
+// закрытие через ESC
+var onPopupEscPress = function (evt) {
+  if (userNameInput === document.activeElement) {
+    return evt;
   } else if (evt.keyCode === ESC_KEYCODE) {
     closePopup();
   }
 };
 
-//открытие попапа
-var openPopup = function() {
+// открытие попапа
+var openPopup = function () {
   userDialog.classList.remove('hidden');
   document.addEventListener('keydown', onPopupEscPress);
 };
 
-//закрытие попапа
-var closePopup = function() {
+// закрытие попапа
+var closePopup = function () {
   userDialog.classList.add('hidden');
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
-setupOpen.addEventListener('click', function() {
+setupOpen.addEventListener ('click', function() {
   openPopup();
 });
 
-setupOpen.addEventListener('keydown', function(evt) {
+setupOpen.addEventListener ('keydown', function(evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     openPopup();
   }
 });
 
-setupClose.addEventListener('click', function() {
+setupClose.addEventListener ('click', function() {
   closePopup();
 });
 
-setupClose.addEventListener('keydown', function(evt) {
+setupClose.addEventListener ('keydown', function(evt) {
   if (evt.keyCode === ENTER_KEYCODE) {
     closePopup();
   }
 });
 
-//ограничения для поля ввода имени
+// ограничения для поля ввода имени
 userNameInput.addEventListener('invalid', function (evt) {
   if (userNameInput.validity.tooShort) {
     userNameInput.setCustomValidity('Имя должно состоять минимум из 2-х символов');
@@ -132,7 +132,16 @@ userNameInput.addEventListener('invalid', function (evt) {
   }
 });
 
-//изменение цвета параметров мага при клике
+userNameInput.addEventListener('input', function (evt) {
+  var target = evt.target;
+  if (target.value.length < 2) {
+    target.setCustomValidity('Имя должно состоять минимум из 2-х символов');
+  } else {
+    target.setCustomValidity('');
+  }
+});
+
+// изменение цвета параметров мага при клике
 coatColor.addEventListener('click', function () {
   changeColor(coatColor, WIZARD_COAT, coatInput);
 });
