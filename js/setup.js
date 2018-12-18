@@ -100,6 +100,8 @@ var openPopup = function () {
 // закрытие попапа
 var closePopup = function () {
   userDialog.classList.add('hidden');
+  userDialog.style.top = '80px';
+  userDialog.style.left = '50%';
   document.removeEventListener('keydown', onPopupEscPress);
 };
 
