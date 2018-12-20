@@ -9,7 +9,6 @@
   var setupOpen = document.querySelector('.setup-open');
   var setupClose = userDialog.querySelector('.setup-close');
   var userNameInput = userDialog.querySelector('.setup-user-name');
-  var setupWizard = userDialog.querySelector('.setup-wizard');
 
   // закрытие через ESC
   var onPopupEscPress = function (evt) {
