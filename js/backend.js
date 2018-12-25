@@ -39,7 +39,7 @@
       onError('Произошла ошибка соединения');
     });
     xhrData.addEventListener('timeout', function () {
-      onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
+      onError('Запрос не успел выполниться за ' + xhrData.timeout + 'мс');
     });
 
     xhrData.timeout = 10000;
