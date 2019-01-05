@@ -3,7 +3,6 @@
 (function () {
 
   var userDialog = document.querySelector('.setup');
-  var setupWizard = userDialog.querySelector('.setup-wizard');
   var form = userDialog.querySelector('.setup-wizard-form');
 
   var wizardCoatColor;
