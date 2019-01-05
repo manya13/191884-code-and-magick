@@ -3,13 +3,7 @@
 (function () {
 
   var userDialog = document.querySelector('.setup');
-  var coatInput = userDialog.querySelector('input[name="coat-color"]');
-  var eyesInput = userDialog.querySelector('input[name="eyes-color"]');
-  var fireballInput = userDialog.querySelector('input[name="fireball-color"]');
   var setupWizard = userDialog.querySelector('.setup-wizard');
-  var coatColor = setupWizard.querySelector('.wizard-coat');
-  var eyesColor = setupWizard.querySelector('.wizard-eyes');
-  var fireballColor = userDialog.querySelector('.setup-fireball-wrap');
   var form = userDialog.querySelector('.setup-wizard-form');
 
   var wizardCoatColor;
@@ -38,8 +32,6 @@
       return rankDiff;
     }));
   };
-
-  var lastTimeout;
 
   window.wizard.onEyesChange = window.debounce(function (color) {
     wizardEyesColor = color;

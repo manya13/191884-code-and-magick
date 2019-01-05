@@ -14,12 +14,10 @@
   var coatColor = setupWizard.querySelector('.wizard-coat');
   var eyesColor = setupWizard.querySelector('.wizard-eyes');
   var fireballColor = userDialog.querySelector('.setup-fireball-wrap');
-  var form = userDialog.querySelector('.setup-wizard-form');
-
 
   var wizard = {
-    onEyesChange: function (color) {},
-    onCoatChange: function (color) {}
+    onEyesChange: function () {},
+    onCoatChange: function () {}
   };
 
   var getRandomNumber = function (arr) {
@@ -57,5 +55,6 @@
     changeColor(fireballColor, WIZARD_FIREBALLS, fireballInput);
   });
 
-  return window.wizard = wizard;
+  window.wizard = wizard;
+  return window.wizard;
 })();
